@@ -67,58 +67,96 @@
     <div class="container ">
         <div class="row">
             <div class="col-4 p-5">
-            <form class="border p-5" action="index.php"  method="POST">
+            <form class="border p-5" action="index.php#formulario"  method="POST" id="formulario">
             <h3>CALCULA TU IMC</h3>
                 <div class="mb-3">
                 <label class="form-label">Peso(KG)</label>
-                <input type="number" class="form-control" name="peso">
+                <input type="number" step="any" class="form-control" name="peso">
 
             </div>
             <div class="mb-3">
                 <label  class="form-label">Altura(cm)</label>
-                <input type="number" class="form-control" name="altura" >
+                <input type="number" step="any" class="form-control" name="altura" >
             </div>
         
             <button type="Submit" class="btn btn-primary" name="botonCalcular">Calcular</button>
             </form>
+
             
             
+            <?php 
+            
+            if(isset($_POST["botonCalcular"])){
+
+                //Declarar entradas
+                $peso=$_POST["peso"];
+                $altura=$_POST["altura"];
+
+                //Proceso
+                $imc=$peso/($altura*$altura);
+                echo("Su IMC es de: ".$imc);
+
+                //salidas
+
+                if ($imc < 18.5){
+                    echo("tu peso es insuficiente");
+                   }else if ($imc => 18.5 &&  $imc>24.9 ){
+                       echo("tu peso es Normopeso");
+                   }else if ($imc => 25 && $imc>26.9 ){
+                       echo("tu peso es Sobrepeso grado I")
+                   }else if ($imc => 27 &&   $imc>29.9 ){ 
+                       echo("tu peso es Sobrepeso grado II (preobesidad)");
+                   }else if ($imc => 30 &&  $imc>34.9 ){
+                       echo("tu peso es Obesidad de tipo I"); .
+                   }else if ($imc => 35 &&  $imc>39.9 ){ 
+                       echo("tu peso es Obesidad de tipo II");
+                   }else if ($imc => 40 &&   $imc>49.9){
+                       echo("tu peso es Obesidad de tipo III (morbida)");
+                   }else if ($imc > 50){
+                   echo("tu peso es Obesidad de tipo IV(Maxima)");
+                   }
+                   
+                   }
+
+
+            }
+            
+            
+            ?>
+
             </div> 
-            <div class="col-8">
-            <img src="deportistas.png" alt=""  class="img-fluid w-100"
-            </div>   
-            </div>    
+                <div class="col-8">
+                    <img src="img/deportistas.png" alt="imagen1"  class="img-fluid w-100">
+                   
+                </div>
+
+
+            
+               
         </div>
     </main>
 
 
 
-    <footer class="bg-secondary mt-5 fondofooter">
+    <footer class="fondoFooter">
         <div class="container-fluid">
-          <div class="row p-5">
-            <div class="col-12 col-md-6 text-white text-end">
-
-              <p>Sebastian Rubio Jimenez &copy;</p>
-              <p>Medellín-Colombia</p>
-              <p>rubiosebas4@gmail.com</p>
-              <p>3113673481</p>
-
+            <div class="row">
+                <div class="col-6 p-5 text-end text-white">
+                    <p>Sebastian Rubio Jimenez &copy;</p>
+                    <p>Medellín-Colombia</p>
+                    <p>CESDE-2021</p>
+                </div>
+                <div class="col-6 p-5 text-white">
+                    <a href=""><i class="fab fa-tiktok fondoIcono"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in fondoIcono"></i></a>
+                    <p>&#9751; rubiosebas4@gmail.com</p>
+                    <p>&phone;3113673481</p>
+                </div>
             </div>
-            <div class="col-12 col-md-6 border-start">
-              
-              <a href="https://www.instagram.com/champagnepapikl/"><i class="fab fa-instagram iconos fa-5x"></i></a>
-              <a href="https://www.facebook.com/bas.jime.12/"><i class="fab fa-linkedin iconos fa-5x"></i></a>
-              <a href="https://www.linkedin.com/in/sebastian-rubio-jimenez-957042207/"><i class="fab fa-twitter iconos fa-5x"></i></a>
-              
-            </div>
-          </div>
         </div>
-
-
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/7b642ec699.js" crossorigin="anonymous"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/3675f85246.js" crossorigin="anonymous"></script> 
 </body>
 </html>

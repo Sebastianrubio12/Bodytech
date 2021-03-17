@@ -1,6 +1,6 @@
 #banner{
 
-    background-image: url("pexels-cottonbro-4761352.jpg");
+    background-image: url(img/pexels-cottonbro-4761352.jpg);
     background-size: cover;
     padding: 20% 2%;
     position:relative;
@@ -48,10 +48,11 @@
 }
 
 .fondoIcono{
-    color:black;
+    color:white;
 }
 
-.fondofooter{
-    background-color:#DD1100;
+.fondoFooter{
+    background-color: #DD1110;
+    opacity:0.85;
 }
 
